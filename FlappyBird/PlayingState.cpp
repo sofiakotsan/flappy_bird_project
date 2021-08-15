@@ -1,8 +1,10 @@
 #include "PlayingState.h"
 
-PlayingState::PlayingState(sf::RenderWindow& _window) : bird{ new Bird{_window} }, State{ _window }
+PlayingState::PlayingState(sf::RenderWindow& _window) : 
+	State{ _window, BACKGROUND_PATH }, 
+	bird{ new Bird{_window} }
 {
-	printf("%f, %f", bird->birdSprite.getOrigin().x, bird->birdSprite.getOrigin().y);
+	
 }
 
 PlayingState::~PlayingState()
@@ -31,7 +33,7 @@ void PlayingState::Update()
 
 void PlayingState::Draw()
 {
-	window->clear();
+	State::Draw();
 
 	window->draw(bird->birdSprite);
 

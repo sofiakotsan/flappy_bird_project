@@ -5,3 +5,4 @@
 #define GAME_NAME "Flappy Bird"
 
 #define BIRD_SPRITE_PATH "Resources/images/bird-01.png"
+#define BACKGROUND_PATH "Resources/images/sky.png"
