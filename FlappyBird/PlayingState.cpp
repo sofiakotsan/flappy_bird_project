@@ -13,7 +13,15 @@ PlayingState::~PlayingState()
 
 void PlayingState::ProcessInput(sf::Event& inputEvent)
 {
-	printf("1\n");
+	if (inputEvent.type == sf::Event::KeyPressed)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+		{
+			bird->birdSprite.move(sf::Vector2f(10, 10));
+		}
+	}
+
+
 }
 
 void PlayingState::Update()
@@ -23,15 +31,9 @@ void PlayingState::Update()
 
 void PlayingState::Draw(sf::RenderWindow& window)
 {
-	//window.clear();
-
-	/*sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
 	window.clear();
-	window.draw(shape);
-	window.display();*/
 
-	printf("2\n");
+	window.draw(bird->birdSprite);
 
+	window.display();
 }

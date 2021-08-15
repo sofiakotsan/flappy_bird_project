@@ -10,5 +10,7 @@ Bird::Bird()
 
 	birdSprite.setTexture(birdTexture);
 
+	birdSprite.setPosition(0, 0);
+
 
 }

@@ -29,9 +29,15 @@ void Game::Run()
 		{
 			if (inputEvent.type == sf::Event::Closed)
 				window.close();
+
+
+			currentState->ProcessInput(inputEvent);
+
 		}
 
-		currentState->ProcessInput(inputEvent);
 		currentState->Draw(this->window);
+
+
+		
 	}
 }
