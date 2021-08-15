@@ -8,17 +8,6 @@ public:
 	sf::Sprite birdSprite;
 	sf::Texture birdTexture;
 
-	Bird()
-	{
-		//sf::Texture()
-		//birdTexture.se
-
-		
-		birdTexture.loadFromFile(BIRD_SPRITE_PATH);
-
-		birdSprite.setTexture(birdTexture);
-
-		
-	}
+	Bird();
 };
 

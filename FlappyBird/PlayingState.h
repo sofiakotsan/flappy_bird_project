@@ -9,9 +9,14 @@
 
 class PlayingState: public State
 {
-public: 
 	Bird* bird;
 	std::vector<Obstacle> obstacles;
+
+public: 
+	
+
+	PlayingState();
+	~PlayingState();
 
 	void ProcessInput(sf::Event& inputEvent) override;
 	void Update() override;

@@ -1,5 +1,16 @@
 #include "PlayingState.h"
 
+PlayingState::PlayingState() : bird{ new Bird }
+{
+	
+}
+
+PlayingState::~PlayingState()
+{
+	if (bird != nullptr)
+		delete bird;
+}
+
 void PlayingState::ProcessInput(sf::Event& inputEvent)
 {
 	printf("1\n");
