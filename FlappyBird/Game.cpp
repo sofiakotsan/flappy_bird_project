@@ -4,7 +4,7 @@ Game::Game(int width, int height, std::string title)
 {
 	window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 
-	currentState = new PlayingState;
+	currentState = new PlayingState{window};
 	//currentState = std::make_shared(new PlayingState);
 
 	this->Run();

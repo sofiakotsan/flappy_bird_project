@@ -8,6 +8,6 @@ public:
 	sf::Sprite birdSprite;
 	sf::Texture birdTexture;
 
-	Bird();
+	Bird(sf::RenderWindow& window);
 };
 

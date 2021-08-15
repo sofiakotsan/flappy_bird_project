@@ -15,7 +15,7 @@ class PlayingState: public State
 public: 
 	
 
-	PlayingState();
+	PlayingState(sf::RenderWindow& window);
 	~PlayingState();
 
 	void ProcessInput(sf::Event& inputEvent) override;

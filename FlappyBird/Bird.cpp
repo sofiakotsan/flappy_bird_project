@@ -1,16 +1,16 @@
 #include "Bird.h"
 
-Bird::Bird()
+Bird::Bird(sf::RenderWindow& window)
 {
-	//sf::Texture()
-	//birdTexture.se
-
 
 	birdTexture.loadFromFile(BIRD_SPRITE_PATH);
 
 	birdSprite.setTexture(birdTexture);
 
-	birdSprite.setPosition(0, 0);
+	//birdSprite.setOrigin(birdSprite.getTextureRect().width / 2, birdSprite.getTextureRect().height / 2);
+	birdSprite.setOrigin(0, birdSprite.getTextureRect().height / 2);
+
+	birdSprite.setPosition(0, window.getSize().y / 2);
 
 
 }
