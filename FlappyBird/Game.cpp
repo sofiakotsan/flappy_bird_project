@@ -35,9 +35,7 @@ void Game::Run()
 
 		}
 
-		currentState->Draw(this->window);
+		currentState->Draw();
 
-
-		
 	}
 }

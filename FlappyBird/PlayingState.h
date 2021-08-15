@@ -20,6 +20,6 @@ public:
 
 	void ProcessInput(sf::Event& inputEvent) override;
 	void Update() override;
-	void Draw(sf::RenderWindow& window) override;
+	void Draw() override;
 };
 

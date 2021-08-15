@@ -4,6 +4,8 @@
 
 class Bird
 {
+protected:
+	sf::RenderWindow* window;
 public:
 	sf::Sprite birdSprite;
 	sf::Texture birdTexture;
