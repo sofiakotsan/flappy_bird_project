@@ -13,7 +13,7 @@ PlayingState::~PlayingState()
 		delete bird;
 }
 
-void PlayingState::ProcessInput(sf::Event& inputEvent, float deltaTime)
+void PlayingState::ProcessInput(sf::Event& inputEvent)
 {
 	if (inputEvent.type == sf::Event::KeyPressed)
 	{
@@ -28,17 +28,18 @@ void PlayingState::Update(float deltaTime)
 {
 	if (bird->birdState == Bird::BirdState::Falling)
 	{
-		bird->birdSprite.move(0, GRAVITY * 0.25);
+		bird->birdSprite.move(0, GRAVITY * 0.2);
 	}
 	else if(bird->birdState == Bird::BirdState::Flying)
 	{
-		if (bird->flyingTime.getElapsedTime().asSeconds() < 0.25)
+		if (bird->flyingTime.getElapsedTime().asSeconds() < FLYING_TIME)
 		{
-			bird->birdSprite.move(0, -GRAVITY * 0.25);
+			bird->birdSprite.move(0, -FLAP_SPEED * 0.2);
 		}
 		else
 		{
 			bird->birdState = Bird::BirdState::Falling;
+			bird->flyingTime.restart();
 		}
 	}
 }

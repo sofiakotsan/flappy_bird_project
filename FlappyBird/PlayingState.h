@@ -18,7 +18,7 @@ public:
 	PlayingState(sf::RenderWindow& window);
 	~PlayingState();
 
-	void ProcessInput(sf::Event& inputEvent, float deltaTime) override;
+	void ProcessInput(sf::Event& inputEvent) override;
 	void Update(float deltaTime) override;
 	void Draw() override;
 };
