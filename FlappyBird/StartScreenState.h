@@ -10,6 +10,6 @@
 class StartScreenState : public State
 {
 public:
-	void ProcessInput(sf::Event& inputEvent) override;
+	void ProcessInput(sf::Event& inputEvent, float deltaTime) override;
 };
 

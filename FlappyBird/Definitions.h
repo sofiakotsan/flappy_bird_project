@@ -6,3 +6,7 @@
 
 #define BIRD_SPRITE_PATH "Resources/images/bird-01.png"
 #define BACKGROUND_PATH "Resources/images/sky.png"
+
+#define GRAVITY 2.0
+#define FLAP_SPEED 10.0
+

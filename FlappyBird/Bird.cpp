@@ -12,5 +12,12 @@ Bird::Bird(sf::RenderWindow& _window) : window{ &_window}
 
 	birdSprite.setPosition(0, window->getSize().y / 2);
 
+	birdState = BirdState::Falling;
 
+}
+
+void Bird::Fly()
+{
+	flyingTime.restart();
+	birdState = BirdState::Flying;
 }

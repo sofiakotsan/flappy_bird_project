@@ -10,8 +10,8 @@ protected:
 public:
 	State(sf::RenderWindow& _window, std::string windowBgImagePath);
 
-	virtual void ProcessInput(sf::Event& inputEvent) = 0;
-	virtual void Update() = 0;
+	virtual void ProcessInput(sf::Event& inputEvent, float deltaTime) = 0;
+	virtual void Update(float deltaTime) = 0;
 	virtual void Draw();
 
 };
