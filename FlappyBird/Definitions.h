@@ -6,8 +6,10 @@
 
 #define BIRD_SPRITE_PATH "Resources/images/bird-01.png"
 #define BACKGROUND_PATH "Resources/images/sky.png"
+#define TOP_PIPE_PATH "Resources/images/PipeUp.png"
+#define BOTTOM_PIPE_PATH "Resources/images/PipeDown.png"
 
-#define GRAVITY 1.3
-#define FLAP_SPEED 1.1
+#define GRAVITY 24
+#define FLAP_SPEED 22
 #define FLYING_TIME 0.25
 

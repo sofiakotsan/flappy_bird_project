@@ -3,7 +3,7 @@
 Game::Game(int width, int height, std::string title)
 {
 	window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
-
+	window.setFramerateLimit(60);
 	currentState = new PlayingState{window};
 
 	this->Run();

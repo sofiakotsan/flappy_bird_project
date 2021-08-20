@@ -2,9 +2,10 @@
 
 PlayingState::PlayingState(sf::RenderWindow& _window) : 
 	State{ _window, BACKGROUND_PATH }, 
-	bird{ new Bird{_window} }
+	bird{ new Bird{_window} }, 
+	pipe{ _window }
 {
-	
+	pipes.push_back(Pipe(_window));
 }
 
 PlayingState::~PlayingState()
@@ -49,6 +50,23 @@ void PlayingState::Draw()
 	State::Draw();
 
 	window->draw(bird->birdSprite);
+
+	/*window->draw(pipe.topPipeSprite);
+	window->draw(pipe.bottomPipeSprite);*/
+
+	for ( auto& pipe : pipes )
+	{
+		window->draw(pipe.topPipeSprite);
+		window->draw(pipe.bottomPipeSprite);
+	}
+
+	//window->setView(sf::View())
+
+	/*for (size_t i = 0; i < pipes.size(); i++)
+	{
+		window->draw(pipes[i].topPipeSprite);
+		window->draw(pipes[i].bottomPipeSprite);
+	}*/
 
 	window->display();
 }
