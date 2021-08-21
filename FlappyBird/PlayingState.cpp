@@ -77,7 +77,18 @@ void PlayingState::Update(float deltaTime)
 		
 	}
 
-	
+	//ground->groundTexture.setRepeated(true);
+	//ground->groundTexture.setRepeated(true);
+	sf::IntRect groundAnimationRect(ground->groundSprite.getTextureRect());
+	//r.
+	//ground->groundSprite.setTextureRect(,);
+	//ground->groundSprite.setTextureRect(ground->groundSprite.getTextureRect().width + 5, )
+	//ground->groundSprite.getTextureRect().left = 10;
+
+	//ground->groundSprite.getTextureRect().left = 10;
+	groundAnimationRect.left += 5;
+
+	ground->groundSprite.setTextureRect(groundAnimationRect);
 
 	/*for (auto& pipe : pipes)
 	{
