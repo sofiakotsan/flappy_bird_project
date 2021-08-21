@@ -13,7 +13,7 @@ public:
 	sf::Sprite bottomPipeSprite;
 	sf::Texture bottomPipeTexture;
 
-	Pipe(sf::RenderWindow& window);
+	Pipe(sf::RenderWindow& window, int freeSpaceSize);
 	Pipe(const Pipe& pipe);
 
 	void renderTopPipe();

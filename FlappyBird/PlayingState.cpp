@@ -50,7 +50,7 @@ void PlayingState::Update(float deltaTime)
 	if (clock.getElapsedTime().asSeconds() >= 1)
 	{
 		//std::make_unique(,)
-		pipes.push_back(std::make_unique<Pipe>(*window));
+		pipes.push_back(std::make_unique<Pipe>(*window, window->getSize().y - ground->groundSprite.getGlobalBounds().height));
 		clock.restart();
 	}
 
@@ -69,41 +69,17 @@ void PlayingState::Update(float deltaTime)
 		}
 		else
 		{
-			pipes[i]->topPipeSprite.move(-5, 0);
-			pipes[i]->bottomPipeSprite.move(-5, 0);
+			pipes[i]->topPipeSprite.move(-GAME_SPEED, 0);
+			pipes[i]->bottomPipeSprite.move(-GAME_SPEED, 0);
 		}
 		
 
 		
 	}
 
-	//ground->groundTexture.setRepeated(true);
-	//ground->groundTexture.setRepeated(true);
 	sf::IntRect groundAnimationRect(ground->groundSprite.getTextureRect());
-	//r.
-	//ground->groundSprite.setTextureRect(,);
-	//ground->groundSprite.setTextureRect(ground->groundSprite.getTextureRect().width + 5, )
-	//ground->groundSprite.getTextureRect().left = 10;
-
-	//ground->groundSprite.getTextureRect().left = 10;
-	groundAnimationRect.left += 5;
-
+	groundAnimationRect.left += GAME_SPEED;
 	ground->groundSprite.setTextureRect(groundAnimationRect);
-
-	/*for (auto& pipe : pipes)
-	{
-		pipe.topPipeSprite.move(-5, 0);
-		pipe.bottomPipeSprite.move(-5, 0);
-
-		if (pipe.topPipeSprite.getPosition().x > window->getSize().x - pipe.topPipeSprite.getGlobalBounds().width)
-		{
-			pipes.erase(pipe);
-		}
-	}*/
-
-
-	//gameView.move(5, 0);
-
 }
 
 void PlayingState::Draw()
