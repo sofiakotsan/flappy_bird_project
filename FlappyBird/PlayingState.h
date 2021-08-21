@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <Bird.h>
+#include <Ground.h>
 #include <Pipe.h>
 #include <State.h>
 #include <vector>
@@ -11,7 +12,9 @@
 
 class PlayingState: public State
 {
-	Bird* bird;
+	std::unique_ptr<Bird> bird;
+	std::unique_ptr<Ground> ground;
+	//Ground* bird;
 	std::vector<std::unique_ptr<Pipe>> pipes;
 	//Pipe pipe;
 	//sf::View gameView;

@@ -2,15 +2,17 @@
 
 PlayingState::PlayingState(sf::RenderWindow& _window) :
 	State{ _window, BACKGROUND_PATH },
-	bird{ new Bird{_window} }
+	bird{ new Bird{_window} },
+	ground{ new Ground{_window} }
 {
+	//std::unique_ptr<Bird> b(
 	srand(time(NULL));
 }
 
 PlayingState::~PlayingState()
 {
-	if (bird != nullptr)
-		delete bird;
+	/*if (bird != nullptr)
+		delete bird;*/
 }
 
 void PlayingState::ProcessInput(sf::Event& inputEvent)
@@ -97,7 +99,7 @@ void PlayingState::Draw()
 {
 	State::Draw();
 
-	window->draw(bird->birdSprite);
+
 
 	/*window->draw(pipe.topPipeSprite);
 	window->draw(pipe.bottomPipeSprite);*/
@@ -107,6 +109,12 @@ void PlayingState::Draw()
 		window->draw(pipe->topPipeSprite);
 		window->draw(pipe->bottomPipeSprite);
 	}
+
+	window->draw(ground->groundSprite);
+
+
+	window->draw(bird->birdSprite);
+
 
 	
 

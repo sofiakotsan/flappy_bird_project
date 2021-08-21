@@ -7,7 +7,7 @@ Bird::Bird(sf::RenderWindow& _window) : window{ &_window}
 
 	birdSprite.setTexture(birdTexture);
 
-	birdSprite.setOrigin(0, birdSprite.getTextureRect().height / 2);
+	birdSprite.setOrigin(0, birdSprite.getGlobalBounds().height / 2);
 
 	birdSprite.setPosition(window->getSize().x / 9, window->getSize().y / 2);
 
