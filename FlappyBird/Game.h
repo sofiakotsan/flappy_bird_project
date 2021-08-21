@@ -11,6 +11,12 @@
 
 class Game
 {
+	std::shared_ptr<bool> birdIntersected;
+	sf::RenderWindow window;
+	State* currentState;
+	sf::Clock clock;
+
+
 public:
 	/*enum class GameState {
 		StartScreen,
@@ -18,12 +24,9 @@ public:
 		GameOver
 	} currentStateId;*/
 
-	sf::RenderWindow window;
 
-	State* currentState;
 	//std::shared_ptr<State> currentState;
 
-	sf::Clock clock;
 
 	Game(int width, int height, std::string title);
 	~Game();

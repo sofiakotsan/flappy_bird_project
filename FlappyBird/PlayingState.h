@@ -19,10 +19,11 @@ class PlayingState: public State
 	//Pipe pipe;
 	//sf::View gameView;
 	sf::Clock clock;
+	std::shared_ptr<bool> birdIntersected;
 public: 
 	
 	//sf::View()
-	PlayingState(sf::RenderWindow& window);
+	PlayingState(sf::RenderWindow& window, std::shared_ptr<bool>& _birdIntersected);
 	~PlayingState();
 
 	void ProcessInput(sf::Event& inputEvent) override;
