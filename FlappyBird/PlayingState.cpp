@@ -2,10 +2,12 @@
 
 PlayingState::PlayingState(sf::RenderWindow& _window) : 
 	State{ _window, BACKGROUND_PATH }, 
-	bird{ new Bird{_window} }, 
-	pipe{ _window }
+	bird{ new Bird{_window} }
+	//pipe{ _window }
 {
-	pipes.push_back(Pipe(_window));
+	srand(time(NULL));
+
+	//pipes.push_back(Pipe(_window));
 }
 
 PlayingState::~PlayingState()
@@ -43,6 +45,13 @@ void PlayingState::Update(float deltaTime)
 			bird->flyingTime.restart();
 		}
 	}
+
+	if (clock.getElapsedTime().asSeconds() >= 1)
+	{
+		pipes.push_back(Pipe(*window));
+		clock.restart();
+	}
+
 }
 
 void PlayingState::Draw()

@@ -1,6 +1,7 @@
 #pragma once
 #include <Definitions.h>
 #include <SFML/Graphics.hpp>
+#include <time.h>
 
 class Pipe
 {

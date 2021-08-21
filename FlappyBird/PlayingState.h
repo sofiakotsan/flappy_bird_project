@@ -5,13 +5,15 @@
 #include <State.h>
 #include <vector>
 #include <string>
+#include <time.h>
 
 
 class PlayingState: public State
 {
 	Bird* bird;
 	std::vector<Pipe> pipes;
-	Pipe pipe;
+	//Pipe pipe;
+	sf::Clock clock;
 public: 
 	
 

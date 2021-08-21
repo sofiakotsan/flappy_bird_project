@@ -6,6 +6,7 @@ Game::Game(int width, int height, std::string title)
 	window.setFramerateLimit(60);
 	currentState = new PlayingState{window};
 
+
 	this->Run();
 }
 

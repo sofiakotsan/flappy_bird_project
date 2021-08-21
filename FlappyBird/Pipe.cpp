@@ -14,8 +14,8 @@ Pipe::Pipe(sf::RenderWindow& _window) : window{ &_window }
 
 	//birdSprite.setPosition(window->getSize().x / 9, window->getSize().y / 2);
 
-	float topPipePos = rand() % window->getSize().y;
-	printf("%f", topPipePos);
+	float topPipePos = rand()  % window->getSize().y;
+	printf("%f\n", topPipePos);
 
 	topPipeSprite.setPosition(100, topPipePos);
 	bottomPipeSprite.setPosition(100, topPipePos - 250);
