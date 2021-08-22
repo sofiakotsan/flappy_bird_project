@@ -1,13 +1,13 @@
 #include "PlayingState.h"
 
-PlayingState::PlayingState(sf::RenderWindow& _window, std::shared_ptr<bool>& _birdIntersected) :
-	State{ _window, BACKGROUND_PATH },
+PlayingState::PlayingState(sf::RenderWindow& _window, std::shared_ptr<bool>& _gameOver) :
+	State{ _window },
 	bird{ new Bird{_window} },
 	ground{ new Ground{_window} },
-	birdIntersected{ _birdIntersected }
+	gameOver{ _gameOver }
 {
 	//std::unique_ptr<Bird> b(
-	//birdIntersected
+	//gameOver
 
 	srand(time(NULL));
 }
@@ -29,7 +29,7 @@ void PlayingState::ProcessInput(sf::Event& inputEvent)
 	}
 }
 
-void PlayingState::Update(float deltaTime)
+void PlayingState::Update()
 {
 	if (bird->birdState == Bird::BirdState::Falling)
 	{
@@ -56,7 +56,7 @@ void PlayingState::Update(float deltaTime)
 	if (bird->birdSprite.getGlobalBounds().intersects(ground->groundSprite.getGlobalBounds()) )
 	{
 		//printf("intersects\n");
-		*birdIntersected = true;
+		*gameOver = true;
 
 	}
 
@@ -80,12 +80,12 @@ void PlayingState::Update(float deltaTime)
 			if (bird->birdSprite.getGlobalBounds().intersects(pipes[i]->topPipeSprite.getGlobalBounds()) || 
 				bird->birdSprite.getGlobalBounds().intersects(pipes[i]->bottomPipeSprite.getGlobalBounds()))
 			{
-				printf("intersects\n");
-				printf("%d", *birdIntersected);
-				printf("1\n");
+				//printf("intersects\n");
+				//printf("%d", *gameOver);
+				//printf("1\n");
 
-				*birdIntersected = true;
-				printf("2\n");
+				*gameOver = true;
+				//printf("2\n");
 
 
 			}

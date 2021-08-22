@@ -1,8 +1,8 @@
 #include "State.h"
 
-State::State(sf::RenderWindow& _window, std::string windowBgImagePath) : window{ &_window } 
+State::State(sf::RenderWindow& _window) : window{ &_window } 
 {
-	windowBgImage.loadFromFile(windowBgImagePath);
+	windowBgImage.loadFromFile(BACKGROUND_PATH);
 	windowBg.setTexture(windowBgImage);
 	windowBg.setPosition(0, 0);
 }

@@ -1,23 +1,23 @@
 #include "Game.h"
 
-Game::Game(int width, int height, std::string title) : birdIntersected{ new bool {false} }
+Game::Game(int width, int height, std::string title) : gameOver{ new bool {false} }
 {
 	window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 	window.setFramerateLimit(60);
-	currentState = new PlayingState{window, birdIntersected };
+	currentState = std::make_unique<PlayingState>(window, gameOver);//new PlayingState{window, gameOver };
 
-	//birdIntersected = std::make_shared<bool>(false);
+	//gameOver = std::make_shared<bool>(false);
 
-	//*birdIntersected = false;
+	//*gameOver = false;
 
-	//birdIntersected = std::make_shared(false);
+	//gameOver = std::make_shared(false);
 
 	this->Run();
 }
 
 Game::~Game() {
-	if (currentState != nullptr)
-		delete currentState;
+	/*if (currentState != nullptr)
+		delete currentState;*/
 }
 
 void Game::Run()
@@ -27,23 +27,42 @@ void Game::Run()
 	{
 		sf::Event inputEvent;
 
-		float deltaTime = clock.getElapsedTime().asSeconds();
+		//float deltaTime = clock.getElapsedTime().asSeconds();
 		
-		currentState->Update(deltaTime);
+		/*else 
+		{
+			currentState = std::make_unique<GameOverState>(window);
+		}*/
+
+		currentState->Update();
+
+
 
 		while (window.pollEvent(inputEvent))
 		{
 			if (inputEvent.type == sf::Event::Closed)
 				window.close();
 
-			currentState->ProcessInput(inputEvent);
+			//if (*gameOver)
+			//{
+				currentState->ProcessInput(inputEvent);
+
+			//}
 		}
 
 		currentState->Draw();
 
-		if (*birdIntersected)
+		if (*gameOver)
 		{
-			printf("intr\n");
+			//printf("1\n");
+			//printf("%d\n", *gameOver);
+
+			currentState.release();
+
+			currentState = std::make_unique<GameOverState>(window);
+			*gameOver = false;
+			//printf("2\n");
+
 		}
 
 	}

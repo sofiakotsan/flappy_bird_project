@@ -19,15 +19,15 @@ class PlayingState: public State
 	//Pipe pipe;
 	//sf::View gameView;
 	sf::Clock clock;
-	std::shared_ptr<bool> birdIntersected;
+	std::shared_ptr<bool> gameOver;
 public: 
 	
 	//sf::View()
-	PlayingState(sf::RenderWindow& window, std::shared_ptr<bool>& _birdIntersected);
+	PlayingState(sf::RenderWindow& window, std::shared_ptr<bool>& _gameOver);
 	~PlayingState();
 
 	void ProcessInput(sf::Event& inputEvent) override;
-	void Update(float deltaTime) override;
+	void Update() override;
 	void Draw() override;
 };
 

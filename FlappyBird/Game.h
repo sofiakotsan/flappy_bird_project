@@ -4,6 +4,7 @@
 //#include <Obstacle.h>
 #include <State.h>
 #include <PlayingState.h>
+#include <GameOverState.h>
 #include <StartScreenState.h>
 #include <vector>
 #include <string>
@@ -11,9 +12,9 @@
 
 class Game
 {
-	std::shared_ptr<bool> birdIntersected;
+	std::shared_ptr<bool> gameOver;
 	sf::RenderWindow window;
-	State* currentState;
+	std::unique_ptr<State> currentState;
 	sf::Clock clock;
 
 

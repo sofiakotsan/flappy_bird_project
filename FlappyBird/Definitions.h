@@ -10,6 +10,9 @@
 #define GROUND_PATH "Resources/images/land.png"
 #define TOP_PIPE_PATH "Resources/images/PipeUp.png"
 #define BOTTOM_PIPE_PATH "Resources/images/PipeDown.png"
+#define PLAY_BUTTON "Resources/images/PlayButton.png"
+#define SCORE_BOARD "Resources/images/Scores.png"
+#define GAME_OVER_LABEL "Resources/images/GameOver.png"
 
 #define PIPE_GAP_HEIGHT 250
 
