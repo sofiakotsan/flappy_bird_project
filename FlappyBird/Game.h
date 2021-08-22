@@ -4,6 +4,7 @@
 //#include <Obstacle.h>
 #include <State.h>
 #include <PlayingState.h>
+#include <GameOverState.h>
 #include <StartScreenState.h>
 #include <vector>
 #include <string>
@@ -11,6 +12,12 @@
 
 class Game
 {
+	std::shared_ptr<bool> gameOver;
+	sf::RenderWindow window;
+	std::unique_ptr<State> currentState;
+	sf::Clock clock;
+
+
 public:
 	/*enum class GameState {
 		StartScreen,
@@ -18,12 +25,9 @@ public:
 		GameOver
 	} currentStateId;*/
 
-	sf::RenderWindow window;
 
-	State* currentState;
 	//std::shared_ptr<State> currentState;
 
-	sf::Clock clock;
 
 	Game(int width, int height, std::string title);
 	~Game();

@@ -4,21 +4,20 @@
 
 class Bird
 {
+protected:
+	sf::RenderWindow* window;
 public:
+	enum class BirdState {
+		Falling, 
+		Flying
+	} birdState;
+
+	sf::Clock flyingTime;
 	sf::Sprite birdSprite;
 	sf::Texture birdTexture;
 
-	Bird()
-	{
-		//sf::Texture()
-		//birdTexture.se
+	Bird(sf::RenderWindow& window);
 
-		
-		birdTexture.loadFromFile(BIRD_SPRITE_PATH);
-
-		birdSprite.setTexture(birdTexture);
-
-		
-	}
+	void Fly();
 };
 

@@ -22,8 +22,7 @@ int main()
         window.display();
     }*/
 
-    Game game(400, 400, "Flappy Bird");
-
+    Game game(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_NAME);
 
     return 0;
 }

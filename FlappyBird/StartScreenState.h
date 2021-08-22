@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <Bird.h>
-#include <Obstacle.h>
+#include <Pipe.h>
 #include <State.h>
 #include <vector>
 #include <string>
