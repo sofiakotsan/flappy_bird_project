@@ -1,16 +1,16 @@
 #include "Game.h"
 
-Game::Game(int width, int height, std::string title) : gameOver{ new bool {false} }, gameStateEnum{ GameState::StartScreen }
+Game::Game(int width, int height, std::string title) : isGameOver{ new bool {false} }, isStartScreen{ new bool {false} }
 {
 	window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 	window.setFramerateLimit(60);
-	currentState = std::make_unique<PlayingState>(window, gameOver);//new PlayingState{window, gameOver };
+	currentState = std::make_unique<PlayingState>(window, isGameOver);//new PlayingState{window, isGameOver };
 
-	//gameOver = std::make_shared<bool>(false);
+	//isGameOver = std::make_shared<bool>(false);
 
-	//*gameOver = false;
+	//*isGameOver = false;
 
-	//gameOver = std::make_shared(false);
+	//isGameOver = std::make_shared(false);
 
 	this->Run();
 }
@@ -43,7 +43,7 @@ void Game::Run()
 			if (inputEvent.type == sf::Event::Closed)
 				window.close();
 
-			//if (*gameOver)
+			//if (*isGameOver)
 			//{
 				currentState->ProcessInput(inputEvent);
 
@@ -52,15 +52,15 @@ void Game::Run()
 
 		currentState->Draw();
 
-		if (*gameOver)
+		if (*isGameOver)
 		{
 			//printf("1\n");
-			//printf("%d\n", *gameOver);
+			//printf("%d\n", *isGameOver);
 
 			currentState.release();
 
 			currentState = std::make_unique<GameOverState>(window);
-			*gameOver = false;
+			*isGameOver = false;
 			//printf("2\n");
 
 		}

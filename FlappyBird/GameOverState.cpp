@@ -38,7 +38,25 @@ void GameOverState::Update()
 
 void GameOverState::ProcessInput(sf::Event& inputEvent)
 {
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	//if (inputEvent.type == sf::Event::MouseButtonPressed)
+	{
+		printf("%d, %d\n", sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+		//sf::Mouse::getPosition().x;
+		//inputEvent.MouseButtonPressed
 
+		int mouseX = sf::Mouse::getPosition().x - window->getPosition().x;
+		int mouseY = sf::Mouse::getPosition().y - window->getPosition().y;
+		printf("%d, %d\n", mouseX, mouseY);
+
+
+		if (playButton.getGlobalBounds().contains(mouseX, mouseY))
+		{
+			printf("contains\n");
+		}
+
+		//playButton.getTextureRect().contains(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y)
+	}
 
 }
 
