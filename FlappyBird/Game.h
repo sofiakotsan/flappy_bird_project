@@ -12,6 +12,16 @@
 
 class Game
 {
+public:
+	enum class GameState
+	{
+		StartScreen,
+		Playing,
+		GameOver
+	};
+private:
+	GameState gameStateEnum;
+
 	std::shared_ptr<bool> gameOver;
 	sf::RenderWindow window;
 	std::unique_ptr<State> currentState;

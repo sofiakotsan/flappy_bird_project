@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game(int width, int height, std::string title) : gameOver{ new bool {false} }
+Game::Game(int width, int height, std::string title) : gameOver{ new bool {false} }, gameStateEnum{ GameState::StartScreen }
 {
 	window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 	window.setFramerateLimit(60);
